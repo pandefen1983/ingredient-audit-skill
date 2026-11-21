@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-anliao-food-search"
+version = "0.1.0"
+description = "An auditable Codex skill for standards-based food shopping"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Open Label Auditor Contributors" }]
+keywords = ["codex", "skill", "food-shopping", "ingredients", "medical-medium", "price-comparison"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+[project.scripts]
+label-audit = "src.demo:main"
+
+[tool.setuptools.packages.find]
+include = ["src*"]

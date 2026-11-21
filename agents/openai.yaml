@@ -1,0 +1,6 @@
+interface:
+  display_name: "安疗标准食品搜索工具"
+  short_description: "按安疗、无麸质、素食或自定义标准核验食品与价格"
+  default_prompt: "Use $anliao-food-search to 帮我找5款符合安疗标准4的京东在售的煎饼。"
+policy:
+  allow_implicit_invocation: true

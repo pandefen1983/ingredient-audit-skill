@@ -1,0 +1,12 @@
+{
+  "name": "clean-label",
+  "description": "Minimal-ingredient and additive screening with a configurable ingredient-count warning.",
+  "default_mode": "strict",
+  "base": {"exclude_terms": [], "allow_terms": [], "fail_patterns": [], "warn_patterns": []},
+  "modes": {
+    "strict": {
+      "exclude_terms": ["山梨酸钾", "苯甲酸钠", "脱氢乙酸钠", "亚硝酸钠", "阿斯巴甜", "三氯蔗糖", "安赛蜜", "乙酰磺胺酸钾", "糖精", "诱惑红", "日落黄", "柠檬黄", "亮蓝", "胭脂红", "卡拉胶", "黄原胶", "羧甲基纤维素钠", "cmc", "单甘油脂肪酸酯", "双甘油脂肪酸酯", "单双甘油脂肪酸酯", "谷氨酸钠", "味精", "呈味核苷酸二钠", "食用香精", "食品用香精", "人工香料"],
+      "max_ingredient_count": 8
+    }
+  }
+}

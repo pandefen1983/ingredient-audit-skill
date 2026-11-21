@@ -1,0 +1,17 @@
+{
+  "name": "vegetarian",
+  "description": "Configurable vegetarian screening for vegan, lacto-ovo, and pescatarian modes.",
+  "default_mode": "vegan",
+  "base": {"exclude_terms": [], "allow_terms": [], "fail_patterns": [], "warn_patterns": []},
+  "modes": {
+    "vegan": {
+      "exclude_terms": ["猪肉", "牛肉", "羊肉", "鸡肉", "鸭肉", "禽肉", "鱼", "虾", "蟹", "贝类", "海鲜", "鸡蛋", "蛋清", "蛋黄", "蛋粉", "牛奶", "乳清", "酪蛋白", "奶粉", "黄油", "奶油", "奶酪", "蜂蜜", "蜂蜡", "明胶", "胭脂红", "虫胶", "l-半胱氨酸", "胶原蛋白", "动物源维生素d3"]
+    },
+    "lacto_ovo": {
+      "exclude_terms": ["猪肉", "牛肉", "羊肉", "鸡肉", "鸭肉", "禽肉", "鱼", "虾", "蟹", "贝类", "海鲜", "明胶", "猪油", "牛油", "动物油", "肉汤", "骨汤", "高汤"]
+    },
+    "pescatarian": {
+      "exclude_terms": ["猪肉", "牛肉", "羊肉", "鸡肉", "鸭肉", "禽肉", "明胶", "猪油", "牛油", "动物油", "肉汤", "骨汤"]
+    }
+  }
+}

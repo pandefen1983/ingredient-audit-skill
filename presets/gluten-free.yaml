@@ -1,0 +1,22 @@
+{
+  "name": "gluten-free",
+  "description": "Strict gluten screening with warnings for ambiguous Chinese-label ingredients.",
+  "default_mode": "strict",
+  "base": {
+    "exclude_terms": [],
+    "allow_terms": ["无麸质燕麦", "无麸质酱油", "无麸质生抽", "麦芽糊精"],
+    "fail_patterns": [],
+    "warn_patterns": []
+  },
+  "modes": {
+    "strict": {
+      "exclude_terms": ["小麦", "大麦", "黑麦", "麦芽", "麦芽提取物", "斯佩耳特小麦", "黑小麦", "普通燕麦", "谷朊粉"],
+      "warn_patterns": [
+        {"pattern": "(?<!无麸质)(酱油|生抽|老抽)", "reason": "May contain wheat unless the exact SKU is certified gluten-free"},
+        {"pattern": "麦芽糊精|食用淀粉|变性淀粉", "reason": "Source is not disclosed; verify the exact label and manufacturer statement"},
+        {"pattern": "酵母抽提物|酵母提取物|水解植物蛋白", "reason": "Processing source is ambiguous; verify gluten-free status"},
+        {"pattern": "(?<!无麸质)燕麦", "reason": "Oats require a current gluten-free statement"}
+      ]
+    }
+  }
+}

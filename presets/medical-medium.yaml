@@ -1,0 +1,78 @@
+{
+  "name": "medical-medium",
+  "description": "Operational transcription of the cumulative Level 1-5 and Bonus list in the Chinese translation/OCR of Cleanse to Heal, pp. 70-72. This represents Medical Medium material, not medical advice or established medical evidence.",
+  "source": {
+    "title": "Medical Medium Cleanse to Heal",
+    "location": "Chinese translation/OCR, pp. 70-72, chapter 7",
+    "source_id": "original:01_1_1_医疗灵媒6-净化以疗愈_彩云小译简体中文修订_第1版(20200421英文版出版).txt:22"
+  },
+  "default_mode": "level_1",
+  "base": {
+    "exclude_terms": [],
+    "allow_terms": [],
+    "fail_patterns": [],
+    "warn_patterns": []
+  },
+  "modes": {
+    "level_1": {
+      "exclude_terms": ["鸡蛋", "鸭蛋", "鹅蛋", "鹌鹑蛋", "蛋清", "蛋黄", "全蛋粉", "蛋白粉（鸡蛋来源）", "蛋制品", "乳清", "酪蛋白", "酪蛋白酸钠", "牛奶", "羊奶", "奶粉", "黄油", "奶油", "奶酪", "乳糖", "酸奶", "乳制品", "小麦", "大麦", "黑麦", "斯佩耳特小麦", "黑小麦", "麸质", "谷蛋白", "麦芽", "碳酸饮料", "汽水", "软饮料"],
+      "warn_patterns": [
+        {"pattern": "食盐|海盐|岩盐|低钠盐|加碘盐", "reason": "Level 1 says to be mindful of salt intake; salt becomes a strict exclusion only when the Bonus no-salt option is selected"}
+      ]
+    },
+    "level_2": {
+      "inherits": "level_1",
+      "exclude_terms": ["猪肉", "猪油", "培根", "火腿", "金枪鱼", "吞拿鱼", "玉米", "玉米淀粉", "玉米粉", "玉米糖浆"]
+    },
+    "level_3": {
+      "inherits": "level_2",
+      "allow_terms": ["鲑鱼", "三文鱼", "鳟鱼", "沙丁鱼"],
+      "exclude_terms": ["植物油", "棕榈油", "棕榈仁油", "菜籽油", "芥花油", "canola oil", "玉米油", "红花籽油", "红花油", "大豆油", "黄豆油", "大豆", "黄豆", "毛豆", "豆腐", "豆豉", "大豆卵磷脂", "大豆蛋白", "羊肉", "羊油", "鱼", "鱼油", "海鲜", "虾", "蟹", "贝类", "鱿鱼", "章鱼", "海参"],
+      "warn_patterns": [
+        {"pattern": "(?<!大豆)卵?磷脂|植物蛋白|组织蛋白", "reason": "Source is not disclosed and may be soy; verify the exact package or manufacturer statement"}
+      ]
+    },
+    "level_4": {
+      "inherits": "level_3",
+      "exclude_terms": ["醋", "苹果醋", "白醋", "米醋", "陈醋", "香醋", "发酵", "发酵食品", "康普茶", "泡菜", "椰子酱", "咖啡因", "咖啡", "抹茶", "巧克力"]
+    },
+    "level_5": {
+      "inherits": "level_4",
+      "allow_terms": ["小米", "燕麦", "无麸质燕麦"],
+      "exclude_terms": ["大米", "稻米", "糙米", "糯米", "米粉", "藜麦", "荞麦", "高粱", "薏米", "薏仁", "谷物", "橄榄油", "核桃油", "葵花籽油", "向日葵油", "椰子油", "芝麻油", "鳄梨油", "牛油果油", "葡萄籽油", "杏仁油", "澳洲坚果油", "夏威夷果油", "花生油", "亚麻籽油", "调和油", "食用油", "动物油", "牛油", "鸡油", "鸭油"]
+    }
+  },
+  "optional_rules": {
+    "bonus_no_salt_seasonings": {
+      "allow_terms": ["纯香辛料", "单一香辛料"],
+      "exclude_terms": ["食盐", "海盐", "岩盐", "低钠盐", "加碘盐", "复合调味料", "调味料"]
+    },
+    "bonus_no_radical_fats": {
+      "exclude_terms": ["鸡肉", "鸭肉", "牛肉", "骨汤", "肉汤", "牛油果", "鳄梨", "坚果", "核桃", "杏仁", "腰果", "开心果", "花生", "花生酱", "坚果酱", "芝麻酱", "种子", "葵花籽", "南瓜籽", "奇亚籽", "亚麻籽", "火麻仁", "椰肉", "椰浆", "椰奶"]
+    },
+    "alcohol": {
+      "exclude_terms": ["酒精", "乙醇", "料酒", "黄酒", "米酒", "白酒", "啤酒", "葡萄酒"]
+    },
+    "natural_artificial_flavors": {
+      "exclude_terms": ["天然香料", "人工香料", "天然香精", "人工香精", "食用香精", "食品用香精", "香精", "flavor", "flavour"]
+    },
+    "nutritional_yeast": {
+      "exclude_terms": ["营养酵母", "nutritional yeast"]
+    },
+    "citric_acid": {
+      "exclude_terms": ["柠檬酸", "citric acid"]
+    },
+    "artificial_sweeteners": {
+      "exclude_terms": ["阿斯巴甜", "三氯蔗糖", "安赛蜜", "乙酰磺胺酸钾", "糖精", "人工甜味剂", "代糖"]
+    },
+    "msg": {
+      "exclude_terms": ["谷氨酸钠", "味精", "酵母抽提物", "酵母提取物", "水解植物蛋白", "呈味核苷酸二钠"]
+    },
+    "formaldehyde": {
+      "exclude_terms": ["甲醛", "formaldehyde"]
+    },
+    "preservatives": {
+      "exclude_terms": ["防腐剂", "山梨酸钾", "苯甲酸钠", "脱氢乙酸钠", "亚硝酸钠", "丙酸钙", "丙酸钠"]
+    }
+  }
+}
