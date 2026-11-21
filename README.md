@@ -2,7 +2,11 @@
 
 An auditable Codex skill and dependency-free Python toolkit for screening Chinese food labels, exposing hidden ingredient risks, and comparing package prices. It keeps the exact label quotation beside every decision instead of asking users to trust a summary.
 
+Auditable food label & ingredient screening agent against hidden allergen traps.
+
 中文核心说明：这是一个面向中国电商食品搜索的可审计 Skill。用户可以选择安疗、严格无麸质、素食或自定义规则；搜索结果默认必须完整抄录包装配料和食品添加剂、提供精确购买链接，并把商品页全部在售规格换算为元/斤。仓库内的本地审计与 Demo 不联网，也不需要 API Key。
+
+深度核验配料表、防隐性成分陷阱的健康食品筛选助手。
 
 ## Why auditable label screening?
 
