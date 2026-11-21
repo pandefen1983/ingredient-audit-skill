@@ -4,7 +4,7 @@ An auditable Codex skill and dependency-free Python toolkit for screening Chines
 
 Auditable food label & ingredient screening agent against hidden allergen traps.
 
-中文核心说明：这是一个面向中国电商食品搜索的可审计 Skill。用户可以选择安疗、严格无麸质、素食或自定义规则；搜索结果默认必须完整抄录包装配料和食品添加剂、提供精确购买链接，并把商品页全部在售规格换算为元/斤。仓库内的本地审计与 Demo 不联网，也不需要 API Key。
+中文核心说明：这是一个面向中国电商食品搜索的可审计 Skill。用户可以选择安疗、严格无麸质、素食或自定义规则；搜索结果默认必须完整抄录包装配料和食品添加剂、提供精确购买链接，并把商品页全部在售规格换算为元/斤后从低到高排列。含明确排除成分的商品不会进入结果；同一页面的不同配方选项会逐项核验，合格选项原名会标在商品名称后。仓库内的本地审计与 Demo 不联网，也不需要 API Key。
 
 深度核验配料表、防隐性成分陷阱的健康食品筛选助手。
 
@@ -24,10 +24,10 @@ Natural-language request
 Choose preset + level/options
         |
         v
-Exact-SKU label evidence ----> PASS / WARN / FAIL + quoted reason
+Every formula option --------> exact-SKU label evidence
         |
         v
-All purchasable variants ----> guaranteed weight ----> CNY/500g
+Compliant options only ------> guaranteed weight ----> CNY/500g ascending
         |
         v
 Auditable comparison with purchase and evidence links
