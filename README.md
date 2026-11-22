@@ -1,12 +1,8 @@
 # Open Label Auditor — 安疗标准食品搜索工具
 
-An auditable Codex skill and dependency-free Python toolkit for screening food labels across global markets, exposing hidden ingredient risks, and comparing package prices. It keeps the exact market-specific label quotation beside every decision instead of asking users to trust a summary.
-
-Auditable food label & ingredient screening agent against hidden allergen traps.
+Open Label Auditor is an AI Skill for Ingredient Verification and auditable food-label screening — a Clean Label-ready ingredient list checker for global product search that binds every verdict to the exact on-package quotation. Built-in presets cover the Medical Medium (Anthony William) framework, Gluten-Free, Vegan / Vegetarian, Clean Label, and custom rules with unit-price normalization. 面向商品搜索的配料表审核助手：逐条深度核验配料表、防隐性成分陷阱，内置美国医疗灵媒（Medical Medium / Anthony William，安东尼·威廉）安疗饮食（1–5 级）、无麸质食品、素食（Vegan / Vegetarian）与零添加预设。
 
 中文核心说明：这是一个面向全球电商食品搜索的可审计 Skill。用户未说明购买或收货国家/地区时会先被询问，之后可以选择安疗、严格无麸质、素食或自定义规则；搜索结果默认必须完整抄录目标市场包装上的配料和食品添加剂、提供精确购买链接，并把商品页全部在售规格换算为当地币种每500g单价后从低到高排列。含明确排除成分的商品不会进入结果；同一页面的不同配方选项会逐项核验，合格选项原名会标在商品名称后。仓库内的本地审计与 Demo 不联网，也不需要 API Key。
-
-深度核验配料表、防隐性成分陷阱的健康食品筛选助手。
 
 ## Why auditable label screening?
 
