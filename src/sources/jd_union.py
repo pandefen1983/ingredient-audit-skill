@@ -13,6 +13,25 @@ from .base import EvidenceType, Sku, SkuDraft, make_sku, pick
 
 PLATFORM = "jd"
 
+# ``priceInfo.lowestPrice`` is documented without a unit and JD has historically
+# returned integer cents for some endpoints (11.9 CNY -> 1190). A single food
+# listing costing 500+ CNY is implausible, so treat anything at or above that
+# floor as cents and scale it down; real yuan prices stay untouched.
+_CENTS_FLOOR = 500
+
+
+def _price_in_yuan(value: Any) -> float | Any:
+    """Best-effort normalisation of a JD price into yuan."""
+    if value is None or value == "":
+        return value
+    try:
+        amount = float(str(value).replace(",", "").strip())
+    except (TypeError, ValueError):
+        return value  # make_sku will try its own parse
+    if amount >= _CENTS_FLOOR:
+        return round(amount / 100, 2)
+    return amount
+
 
 def to_sku(raw: dict[str, Any]) -> Sku:
     price_info = raw.get("priceInfo") or {}
@@ -27,7 +46,9 @@ def to_sku(raw: dict[str, Any]) -> Sku:
             platform=PLATFORM,
             sku_id=sku_id,
             title=pick(raw, "skuName", "title") or "",
-            price=pick(price_info, "lowestPrice", "price") or pick(raw, "price"),
+            price=_price_in_yuan(
+                pick(price_info, "lowestPrice", "price") or pick(raw, "price")
+            ),
             # goods.query does not expose net weight; callers may pass it after
             # reading the detail page.
             spec=pick(raw, "spec", "netWeight", "规格") or "",
