@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "description": "Where each category lives on each marketplace, plus the price bands used to break the per-query result cap. JSON-compatible YAML.",
+  "jd": {
+    "label": "京东",
+    "category": {
+      "面条": "食品饮料>粮油调味>米面杂粮>面条",
+      "米线": "食品饮料>粮油调味>米面杂粮>米线",
+      "煎饼": "食品饮料>休闲食品>饼干蛋糕>煎饼"
+    },
+    "sort": "sales_desc",
+    "price_bands": [[0, 20], [20, 50], [50, null]],
+    "max_pages_per_band": 3,
+    "request_interval_seconds": 1.0
+  },
+  "taobao": {
+    "label": "淘宝",
+    "category": {
+      "面条": "粮油米面/南北干货/调味品>面条/挂面",
+      "米线": "粮油米面/南北干货/调味品>米线/米粉",
+      "煎饼": "零食/坚果/特产>地方特产>煎饼"
+    },
+    "sort": "sale_desc",
+    "price_bands": [[0, 15], [15, 40], [40, null]],
+    "max_pages_per_band": 3,
+    "request_interval_seconds": 1.5
+  },
+  "douyin": {
+    "label": "抖音商城",
+    "category": {
+      "面条": "食品饮料>粮油调味>面条",
+      "米线": "食品饮料>粮油调味>米线",
+      "煎饼": "食品饮料>休闲零食>煎饼"
+    },
+    "sort": "sales_desc",
+    "price_bands": [[0, 20], [20, null]],
+    "max_pages_per_band": 2,
+    "request_interval_seconds": 2.0
+  }
+}

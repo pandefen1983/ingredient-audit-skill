@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "locale": "zh-CN",
+  "description": "Deterministic keyword pools for Chinese grocery marketplaces. JSON-compatible YAML, loaded with json.loads (no PyYAML dependency).",
+  "categories": {
+    "面条": {
+      "primary": "面条",
+      "variants": ["挂面", "干面条"],
+      "aliases": ["挂面", "干面", "细面", "宽面", "龙须面", "面干", "杂粮面"]
+    },
+    "米线": {
+      "primary": "米线",
+      "variants": ["米粉", "干米粉"],
+      "aliases": ["米粉", "粉干", "干米粉", "米线干"]
+    },
+    "煎饼": {
+      "primary": "煎饼",
+      "variants": ["煎饼", "薄饼"],
+      "aliases": ["杂粮煎饼", "小米煎饼", "大米煎饼", "荞麦煎饼", "山东煎饼", "软煎饼"]
+    },
+    "面包": {
+      "primary": "面包",
+      "variants": ["面包", "吐司"],
+      "aliases": ["全麦面包", "无麸质面包", "杂粮面包"]
+    }
+  },
+  "prefixes": {
+    "generic": ["纯", "100%", "无麸质", "无添加", "0添加"],
+    "ingredients": ["荞麦", "苦荞", "小米", "大米", "糙米", "藜麦", "高粱", "薏米"],
+    "preset_ingredients": {
+      "medical-medium": ["荞麦", "苦荞", "小米", "大米", "糙米", "藜麦", "高粱", "薏米"],
+      "gluten-free": ["荞麦", "小米", "大米", "糙米", "藜麦", "高粱", "薏米", "玉米"],
+      "vegetarian": ["荞麦", "小米", "大米", "糙米", "藜麦", "高粱", "薏米", "绿豆"],
+      "clean-label": ["荞麦", "小米", "大米", "糙米", "藜麦", "高粱", "薏米"]
+    }
+  },
+  "brands": [
+    { "name": "金沙河", "categories": ["面条"] },
+    { "name": "富侬克", "categories": ["面条"] },
+    { "name": "荞麦郎", "categories": ["面条"] },
+    { "name": "王仁和", "categories": ["米线"] },
+    { "name": "燕之坊", "categories": ["面条", "面包"] },
+    { "name": "沂蒙", "categories": ["煎饼"] },
+    { "name": "老农欢", "categories": ["煎饼", "面条"] }
+  ],
+  "noise_words": [
+    "包邮",
+    "旗舰店",
+    "官方",
+    "正品",
+    "整箱",
+    "新包装",
+    "旧包装",
+    "现货",
+    "顺丰",
+    "买一送一"
+  ]
+}
