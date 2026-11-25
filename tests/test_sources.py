@@ -76,13 +76,19 @@ class AdapterTests(unittest.TestCase):
         self.assertEqual(sku.price, 11.9)
         self.assertIn("item.jd.com", sku.url)
 
-    def test_jd_price_reported_in_cents_is_scaled_to_yuan(self) -> None:
+    def test_jd_price_defaults_to_yuan_and_never_guesses(self) -> None:
+        # No magnitude heuristics: 1190 stays 1190 unless the caller says cents.
         sku = jd_to_sku({**JD_RAW, "priceInfo": {"lowestPrice": 1190}})
-        self.assertEqual(sku.price, 11.9)
+        self.assertEqual(sku.price, 1190.0)
 
-    def test_jd_price_below_cents_floor_is_kept_as_yuan(self) -> None:
-        sku = jd_to_sku({**JD_RAW, "priceInfo": {"lowestPrice": "88.80"}})
-        self.assertEqual(sku.price, 88.8)
+    def test_jd_price_declared_in_cents_is_scaled(self) -> None:
+        sku = jd_to_sku({**JD_RAW, "priceInfo": {"lowestPrice": 1190}}, price_unit="cents")
+        self.assertEqual(sku.price, 11.9)
+        self.assertIn("cents", sku.evidence_note)
+
+    def test_jd_rejects_unknown_price_unit(self) -> None:
+        with self.assertRaises(ValueError):
+            jd_to_sku(JD_RAW, price_unit="fen")
 
     def test_taobao_union_never_claims_evidence(self) -> None:
         sku = taobao_to_sku(TB_RAW)
